@@ -1,0 +1,206 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-grotesk);
+  --font-mono: var(--font-grotesk);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/*
+ * "Maison Noir" palette for P-CORNEL TRADING LIMITED.
+ * Black + Champagne Gold + Ivory — premium, elegant, modern.
+ *  - Ivory for page backgrounds and light cards
+ *  - Black for strong text, dark sections, footer
+ *  - Champagne Gold for accents, highlights, borders, CTAs
+ */
+:root {
+  --radius: 0.875rem;
+
+  /* Core palette */
+  --color-black: #0A0A0A;
+  --color-black-soft: #1A1A1A;
+  --color-ivory: #F8F4EA;
+  --color-ivory-deep: #EFE9DC;
+  --color-gold: #C9A961;
+  --color-gold-light: #DCC591;
+  --color-gold-dark: #A88940;
+
+  --background: #F8F4EA;        /* ivory */
+  --foreground: #0A0A0A;        /* black */
+
+  --card: #FFFFFF;
+  --card-foreground: #0A0A0A;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #0A0A0A;
+
+  --primary: #0A0A0A;           /* black */
+  --primary-foreground: #F8F4EA;
+
+  --secondary: #EFE9DC;         /* ivory-deep */
+  --secondary-foreground: #0A0A0A;
+
+  --muted: #F2EDE2;             /* warm muted */
+  --muted-foreground: #5A5A5A;
+
+  --accent: #C9A961;            /* champagne gold */
+  --accent-foreground: #0A0A0A;
+
+  --accent-2: #DCC591;          /* light gold */
+  --accent-2-foreground: #0A0A0A;
+
+  --destructive: #B91C1C;
+
+  --border: #E8DFCC;            /* warm border */
+  --input: #E8DFCC;
+  --ring: #C9A961;
+
+  --chart-1: #0A0A0A;
+  --chart-2: #C9A961;
+  --chart-3: #A88940;
+  --chart-4: #DCC591;
+  --chart-5: #B91C1C;
+
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #0A0A0A;
+  --sidebar-primary: #0A0A0A;
+  --sidebar-primary-foreground: #F8F4EA;
+  --sidebar-accent: #EFE9DC;
+  --sidebar-accent-foreground: #0A0A0A;
+  --sidebar-border: #E8DFCC;
+  --sidebar-ring: #C9A961;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-grotesk), var(--font-inter), system-ui, sans-serif;
+    letter-spacing: -0.025em;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #EFE9DC; }
+::-webkit-scrollbar-thumb { background: #C9A961; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #A88940; }
+
+/* Background patterns */
+.dot-pattern {
+  background-image: radial-gradient(rgba(10, 10, 10, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(201, 169, 97, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 169, 97, 0.08) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Gold gradient text */
+.gold-text {
+  background: linear-gradient(135deg, #DCC591 0%, #C9A961 50%, #A88940 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Marquee animation for brand strip */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+.animate-marquee-slow {
+  animation: marquee 60s linear infinite;
+}
+.marquee-container:hover .animate-marquee,
+.marquee-container:hover .animate-marquee-slow {
+  animation-play-state: paused;
+}
+
+/* Subtle float animation for hero deck */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Card hover lift */
+.lift-on-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.lift-on-hover:hover {
+  transform: translateY(-6px);
+}
+
+/* Pulse ring for floating WhatsApp */
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  70% { transform: scale(1.3); opacity: 0; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+.pulse-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgba(201, 169, 97, 0.5);
+  animation: pulse-ring 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  z-index: -1;
+}
