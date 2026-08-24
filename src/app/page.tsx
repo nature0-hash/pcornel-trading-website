@@ -6,7 +6,6 @@ import { HowItWorks } from "@/components/site/how-it-works";
 import { FeaturedCards } from "@/components/site/featured-cards";
 import { Gallery } from "@/components/site/gallery";
 import { About } from "@/components/site/about";
-import { Testimonials } from "@/components/site/testimonials";
 import { Faq } from "@/components/site/faq";
 import { Contact } from "@/components/site/contact";
 import { Terms } from "@/components/site/terms";
@@ -15,7 +14,7 @@ import { FloatingWhatsApp } from "@/components/site/floating-whatsapp";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F7F6F1]">
+    <div className="min-h-screen flex flex-col bg-[#F8F4EA]">
       <Navbar />
       <main className="flex-1">
         <Hero />
@@ -25,7 +24,6 @@ export default function Home() {
         <FeaturedCards />
         <Gallery />
         <About />
-        <Testimonials />
         <Faq />
         <Contact />
         <Terms />

@@ -5,6 +5,7 @@ import { whatsappLink } from "@/lib/site-config";
 
 /**
  * Floating WhatsApp button that stays visible while scrolling.
+ * Black + gold theme — no green.
  */
 export function FloatingWhatsApp() {
   const [visible, setVisible] = useState(false);
@@ -31,10 +32,10 @@ export function FloatingWhatsApp() {
       }`}
     >
       <div className="relative pulse-ring">
-        <div className="relative h-14 w-14 md:h-16 md:w-16 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] shadow-xl shadow-[#25D366]/40 flex items-center justify-center transition-colors">
+        <div className="relative h-14 w-14 md:h-16 md:w-16 rounded-full bg-[#0A0A0A] hover:bg-[#1A1A1A] shadow-xl shadow-black/30 flex items-center justify-center transition-colors border border-[#C9A961]/50 hover:border-[#C9A961]">
           <svg
             viewBox="0 0 24 24"
-            className="h-7 w-7 md:h-8 md:w-8 text-white"
+            className="h-7 w-7 md:h-8 md:w-8 text-[#C9A961]"
             fill="currentColor"
             aria-hidden="true"
           >
@@ -42,9 +43,9 @@ export function FloatingWhatsApp() {
           </svg>
         </div>
         {/* Tooltip */}
-        <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap bg-white text-[#062C22] text-xs font-semibold px-3 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-[#DDD9CB]">
+        <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap bg-[#0A0A0A] text-[#F8F4EA] text-xs font-semibold px-3 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-[#C9A961]/30">
           Chat with us
-          <span className="absolute top-1/2 -translate-y-1/2 left-full border-4 border-transparent border-l-white" />
+          <span className="absolute top-1/2 -translate-y-1/2 left-full border-4 border-transparent border-l-[#0A0A0A]" />
         </div>
       </div>
     </a>

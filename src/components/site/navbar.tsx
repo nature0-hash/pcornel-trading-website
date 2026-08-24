@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { navLinks, siteConfig, whatsappLink } from "@/lib/site-config";
+import { navLinks, whatsappLink } from "@/lib/site-config";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,27 +21,22 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-[#F7F6F1]/95 backdrop-blur-md shadow-sm border-b border-[#DDD9CB]"
-          : "bg-[#F7F6F1]/80 backdrop-blur-sm"
+          ? "bg-[#F8F4EA]/95 backdrop-blur-md shadow-sm border-b border-[#E8DFCC]"
+          : "bg-[#F8F4EA]/80 backdrop-blur-sm"
       )}
     >
       <nav className="mx-auto flex h-16 md:h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand mark */}
+        {/* Brand — text only, no logo icon */}
         <a
           href="#home"
-          className="flex items-center gap-2.5 group"
-          aria-label={siteConfig.brand}
+          className="flex flex-col leading-tight group"
+          aria-label="P-CORNEL TRADING LIMITED"
         >
-          <span className="inline-flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-xl bg-[#062C22] text-[#F7F6F1] ring-1 ring-[#059669]/30 shadow-sm group-hover:ring-[#059669] transition-all">
-            <span className="text-base font-extrabold">P</span>
+          <span className="text-[10px] md:text-[11px] uppercase tracking-[0.24em] text-[#C9A961] font-semibold">
+            P-Cornel
           </span>
-          <span className="flex flex-col leading-tight">
-            <span className="text-[10px] md:text-[11px] uppercase tracking-[0.22em] text-[#059669] font-semibold">
-              P-Cornel
-            </span>
-            <span className="text-sm md:text-[15px] font-extrabold tracking-tight text-[#0E1B17] group-hover:text-[#062C22] transition-colors">
-              TRADING LIMITED
-            </span>
+          <span className="text-sm md:text-[15px] font-extrabold tracking-tight text-[#0A0A0A] group-hover:text-[#1A1A1A] transition-colors">
+            TRADING LIMITED
           </span>
         </a>
 
@@ -51,7 +46,7 @@ export function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-[#0E1B17]/80 hover:text-[#062C22] rounded-full hover:bg-[#ECEAE0] transition-colors"
+                className="px-4 py-2 text-sm font-medium text-[#0A0A0A]/80 hover:text-[#0A0A0A] rounded-full hover:bg-[#EFE9DC] transition-colors"
               >
                 {link.label}
               </a>
@@ -65,16 +60,16 @@ export function Navbar() {
             href={whatsappLink("Hello P-Cornel Trading, I'd like to trade a gift card.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-[#25D366] hover:bg-[#1EBE5D] rounded-full transition-colors shadow-sm shadow-[#25D366]/30"
+            className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-[#F8F4EA] bg-[#0A0A0A] hover:bg-[#1A1A1A] rounded-full transition-colors border border-[#C9A961]/40 hover:border-[#C9A961] shadow-sm"
           >
-            <MessageCircle className="h-4 w-4" />
+            <MessageCircle className="h-4 w-4 text-[#C9A961]" />
             WhatsApp
           </a>
         </div>
 
         {/* Mobile menu button */}
         <button
-          className="lg:hidden p-2 rounded-lg text-[#062C22] hover:bg-[#ECEAE0] transition-colors"
+          className="lg:hidden p-2 rounded-lg text-[#0A0A0A] hover:bg-[#EFE9DC] transition-colors"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
@@ -86,7 +81,7 @@ export function Navbar() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "lg:hidden overflow-hidden transition-all duration-300 bg-[#F7F6F1] border-t border-[#DDD9CB]",
+          "lg:hidden overflow-hidden transition-all duration-300 bg-[#F8F4EA] border-t border-[#E8DFCC]",
           mobileOpen ? "max-h-[560px] opacity-100" : "max-h-0 opacity-0"
         )}
       >
@@ -96,7 +91,7 @@ export function Navbar() {
               <a
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block px-4 py-3 text-sm font-medium text-[#0E1B17]/80 hover:text-[#062C22] hover:bg-[#ECEAE0] rounded-lg transition-colors"
+                className="block px-4 py-3 text-sm font-medium text-[#0A0A0A]/80 hover:text-[#0A0A0A] hover:bg-[#EFE9DC] rounded-lg transition-colors"
               >
                 {link.label}
               </a>
@@ -107,9 +102,9 @@ export function Navbar() {
               href={whatsappLink("Hello P-Cornel Trading, I'd like to trade a gift card.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full px-5 py-3 text-sm font-semibold text-white bg-[#25D366] hover:bg-[#1EBE5D] rounded-full transition-colors shadow-sm"
+              className="flex items-center justify-center gap-2 w-full px-5 py-3 text-sm font-semibold text-[#F8F4EA] bg-[#0A0A0A] hover:bg-[#1A1A1A] rounded-full transition-colors border border-[#C9A961]/40 shadow-sm"
             >
-              <MessageCircle className="h-4 w-4" />
+              <MessageCircle className="h-4 w-4 text-[#C9A961]" />
               Chat on WhatsApp
             </a>
           </li>

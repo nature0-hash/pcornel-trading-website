@@ -10,7 +10,7 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-white border-b border-[#DDD9CB]">
+    <section id="faq" className="py-20 md:py-28 bg-[#EFE9DC]">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,15 +19,15 @@ export function Faq() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#059669]/10 border border-[#059669]/20 px-4 py-1.5 mb-4">
-            <span className="text-xs font-semibold text-[#059669] uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white border border-[#E8DFCC] px-4 py-1.5 mb-4">
+            <span className="text-xs font-semibold text-[#C9A961] uppercase tracking-wider">
               FAQ
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#062C22] tracking-tight">
-            Questions, <span className="emerald-text">answered</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0A0A] tracking-tight">
+            Questions, <span className="gold-text">answered</span>
           </h2>
-          <p className="mt-4 text-base md:text-lg text-[#5C6B66]">
+          <p className="mt-4 text-base md:text-lg text-[#5A5A5A]">
             Everything you need to know before your first trade. Still unsure?
             Message us on WhatsApp.
           </p>
@@ -45,8 +45,8 @@ export function Faq() {
                 transition={{ duration: 0.4, delay: i * 0.05 }}
                 className={`rounded-2xl border transition-colors overflow-hidden ${
                   isOpen
-                    ? "bg-[#F7F6F1] border-[#059669]/30"
-                    : "bg-[#F7F6F1]/40 border-[#DDD9CB] hover:border-[#059669]/30"
+                    ? "bg-white border-[#C9A961]/40 shadow-md"
+                    : "bg-white/60 border-[#E8DFCC] hover:border-[#C9A961]/40"
                 }`}
               >
                 <button
@@ -54,11 +54,11 @@ export function Faq() {
                   className="w-full flex items-center justify-between gap-4 p-5 md:p-6 text-left"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base md:text-lg font-bold text-[#062C22]">
+                  <span className="text-base md:text-lg font-bold text-[#0A0A0A]">
                     {faq.q}
                   </span>
                   <ChevronDown
-                    className={`h-5 w-5 flex-shrink-0 text-[#059669] transition-transform duration-300 ${
+                    className={`h-5 w-5 flex-shrink-0 text-[#C9A961] transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
@@ -71,7 +71,7 @@ export function Faq() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-5 md:px-6 pb-5 md:pb-6 text-sm md:text-base text-[#5C6B66] leading-relaxed">
+                    <p className="px-5 md:px-6 pb-5 md:pb-6 text-sm md:text-base text-[#5A5A5A] leading-relaxed">
                       {faq.a}
                     </p>
                   </div>
@@ -86,13 +86,13 @@ export function Faq() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5 }}
-          className="mt-12 text-center bg-[#F7F6F1] rounded-3xl p-8 border border-[#DDD9CB]"
+          className="mt-12 text-center bg-white rounded-3xl p-8 border border-[#E8DFCC]"
         >
-          <h3 className="text-xl md:text-2xl font-bold text-[#062C22] mb-2">
+          <h3 className="text-xl md:text-2xl font-bold text-[#0A0A0A] mb-2">
             Still have questions?
           </h3>
-          <p className="text-sm text-[#5C6B66] mb-5">
-            Our team is on WhatsApp around the clock. Get an answer in minutes.
+          <p className="text-sm text-[#5A5A5A] mb-5">
+            Our team is on WhatsApp. Reach us directly whenever you are ready.
           </p>
           <WhatsAppButton
             label="Ask on WhatsApp"

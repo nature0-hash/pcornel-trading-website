@@ -16,25 +16,26 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "P-CORNEL TRADING LIMITED | Africa's Premium Gift Card Exchange",
+  title: "P-CORNEL TRADING LIMITED | Premium Gift Card Trading",
   description:
-    "P-CORNEL TRADING LIMITED converts unused gift cards into instant cash. Secure, transparent and lightning-fast payouts across Nigeria, Ghana, Kenya, South Africa and 30+ countries.",
+    "P-CORNEL TRADING LIMITED provides a straightforward way to trade supported gift cards through a fast, reliable and customer-focused process.",
   keywords: [
     "P-CORNEL TRADING",
     "gift card trading",
-    "gift card exchange Nigeria",
+    "gift card exchange",
     "Amazon gift card buyer",
     "Steam gift card rate",
     "iTunes gift card",
-    "instant gift card payout",
+    "Razer Gold gift card",
+    "Google Play gift card",
+    "verified gift card payouts",
     "bulk gift card trading",
-    "mobile money gift cards",
   ],
   authors: [{ name: "P-CORNEL TRADING LIMITED" }],
   openGraph: {
     title: "P-CORNEL TRADING LIMITED",
     description:
-      "Africa's Premium Gift Card Exchange. Secure, instant, and reliable gift card trading across 30+ countries.",
+      "Premium gift card trading built around trust, speed and simplicity. Trade supported gift cards through a fast, reliable and customer-focused process.",
     siteName: "P-CORNEL TRADING LIMITED",
     type: "website",
   },
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "P-CORNEL TRADING LIMITED",
     description:
-      "Africa's Premium Gift Card Exchange. Secure, instant, and reliable gift card trading worldwide.",
+      "Premium gift card trading built around trust, speed and simplicity.",
   },
 };
 

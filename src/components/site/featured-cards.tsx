@@ -8,131 +8,159 @@ import {
   SteamCard,
   ITunesCard,
   GooglePlayCard,
-  XboxCard,
-  PlayStationCard,
+  RazerGoldCard,
 } from "./brand-cards";
 
+/**
+ * Featured cards section — 5 hero brands only.
+ * Amazon, Steam, iTunes, Google Play, Razer Gold.
+ *
+ * Layout: a balanced 5-card composition (asymmetric magazine grid),
+ * where the first card is larger (Amazon spotlight) and the remaining
+ * four are arranged in a clean 2x2 + 1 layout.
+ */
 export function FeaturedCards() {
   return (
-    <section id="featured" className="py-20 md:py-28 bg-white border-b border-[#DDD9CB]">
+    <section
+      id="featured"
+      className="py-20 md:py-28 bg-[#EFE9DC] border-b border-[#E8DFCC]"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          {/* Left: featured cards in asymmetric grid */}
-          <div className="lg:col-span-7 order-2 lg:order-1">
-            <div className="grid grid-cols-2 sm:grid-cols-6 gap-3 md:gap-4 max-w-xl mx-auto lg:mx-0">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.05 }}
-                className="col-span-2 sm:col-span-4 sm:row-span-2"
-              >
-                <AmazonCard />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                className="col-span-1 sm:col-span-2"
-              >
-                <SteamCard />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.15 }}
-                className="col-span-1 sm:col-span-2"
-              >
-                <ITunesCard />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                className="col-span-1 sm:col-span-2"
-              >
-                <GooglePlayCard />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.25 }}
-                className="col-span-1 sm:col-span-2"
-              >
-                <XboxCard />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.3 }}
-                className="col-span-2 sm:col-span-2"
-              >
-                <PlayStationCard />
-              </motion.div>
-            </div>
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto mb-12 md:mb-14"
+        >
+          <div className="inline-flex items-center gap-2 rounded-full bg-white border border-[#E8DFCC] px-4 py-1.5 mb-4">
+            <span className="text-xs font-semibold text-[#C9A961] uppercase tracking-wider">
+              Featured cards
+            </span>
           </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0A0A] tracking-tight">
+            The brands traders{" "}
+            <span className="gold-text">bring us most</span>
+          </h2>
+          <p className="mt-4 text-base md:text-lg text-[#5A5A5A]">
+            These five gift cards make up the bulk of our daily trades. Tap
+            any card to start a trade on WhatsApp with a pre-filled message.
+          </p>
+        </motion.div>
 
-          {/* Right: copy + CTA */}
+        {/* Balanced 5-card composition */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 max-w-5xl mx-auto">
+          {/* Amazon — spotlight, larger, spans full left column */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 order-1 lg:order-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="md:col-span-1 md:row-span-2"
           >
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#059669]/10 border border-[#059669]/20 px-4 py-1.5 mb-5">
-              <span className="text-xs font-semibold text-[#059669] uppercase tracking-wider">
-                Featured cards
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#062C22] tracking-tight leading-tight">
-              The brands traders{" "}
-              <span className="emerald-text">bring us every day</span>
-            </h2>
-            <p className="mt-5 text-base md:text-lg text-[#5C6B66] leading-relaxed">
-              These six are the most-traded gift cards on our desk this month.
-              Amazon, Steam and iTunes lead the volume, but we accept 120+ other
-              brands across cash, gaming, streaming, shopping and tech
-              categories. If you have a real gift card from a recognised issuer,
-              we will quote it.
-            </p>
+            <FeaturedCardWrapper brandName="Amazon">
+              <AmazonCard />
+            </FeaturedCardWrapper>
+          </motion.div>
 
-            <ul className="mt-6 space-y-2.5">
-              {[
-                "Live, market-benchmarked rates for every brand",
-                "Both physical cards and e-codes accepted",
-                "Bulk desk for resellers with premium rates",
-                "Cards from US, UK, EU, CA, AU and beyond",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm text-[#0E1B17]">
-                  <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#059669]/10 flex-shrink-0">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#059669]" />
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+          {/* Steam — top middle */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <FeaturedCardWrapper brandName="Steam">
+              <SteamCard />
+            </FeaturedCardWrapper>
+          </motion.div>
 
-            <div className="mt-8">
-              <WhatsAppButton
-                label="Get a rate for my card"
-                size="lg"
-                message="Hello P-Cornel Trading, I'd like to get a rate quote for my gift card."
-              />
-            </div>
+          {/* iTunes — top right */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <FeaturedCardWrapper brandName="iTunes">
+              <ITunesCard />
+            </FeaturedCardWrapper>
+          </motion.div>
+
+          {/* Google Play — bottom middle */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <FeaturedCardWrapper brandName="Google Play">
+              <GooglePlayCard />
+            </FeaturedCardWrapper>
+          </motion.div>
+
+          {/* Razer Gold — bottom right */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+          >
+            <FeaturedCardWrapper brandName="Razer Gold">
+              <RazerGoldCard />
+            </FeaturedCardWrapper>
           </motion.div>
         </div>
+
+        {/* CTA row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5 }}
+          className="mt-12 md:mt-14 text-center"
+        >
+          <p className="text-[#5A5A5A] mb-5">
+            Don&apos;t see your card? We trade 12+ brands in total.
+          </p>
+          <a
+            href="#cards"
+            className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold text-[#0A0A0A] bg-white border border-[#E8DFCC] hover:border-[#C9A961] hover:bg-[#F8F4EA] rounded-full transition-all duration-300 hover:scale-[1.02] shadow-sm"
+          >
+            View all supported cards
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </motion.div>
       </div>
     </section>
+  );
+}
+
+/**
+ * Wrapper that turns any brand card into a clickable WhatsApp link with
+ * a pre-filled message.
+ */
+function FeaturedCardWrapper({
+  brandName,
+  children,
+}: {
+  brandName: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={`https://wa.me/2347034886195?text=${encodeURIComponent(
+        `Hello P-Cornel Trading, I'd like to trade a ${brandName} gift card. Please share your current rate.`
+      )}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block group focus:outline-none"
+      aria-label={`Trade ${brandName} gift card on WhatsApp`}
+    >
+      <div className="transition-transform duration-300 group-hover:-translate-y-1.5 group-hover:scale-[1.01]">
+        {children}
+      </div>
+    </a>
   );
 }

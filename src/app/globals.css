@@ -45,62 +45,68 @@
 }
 
 /*
- * "Verdant Vault" palette for P-CORNEL TRADING LIMITED.
- * Warm cream background, deep charcoal-green foreground, vibrant emerald
- * accent and a warm amber secondary accent. Distinct from any navy / gold
- * look used by competing gift card brands.
+ * "Maison Noir" palette for P-CORNEL TRADING LIMITED.
+ * Black + Champagne Gold + Ivory — premium, elegant, modern.
+ *  - Ivory for page backgrounds and light cards
+ *  - Black for strong text, dark sections, footer
+ *  - Champagne Gold for accents, highlights, borders, CTAs
  */
 :root {
   --radius: 0.875rem;
 
-  --background: #F7F6F1;       /* warm cream */
-  --foreground: #0E1B17;       /* deep charcoal-green */
+  /* Core palette */
+  --color-black: #0A0A0A;
+  --color-black-soft: #1A1A1A;
+  --color-ivory: #F8F4EA;
+  --color-ivory-deep: #EFE9DC;
+  --color-gold: #C9A961;
+  --color-gold-light: #DCC591;
+  --color-gold-dark: #A88940;
+
+  --background: #F8F4EA;        /* ivory */
+  --foreground: #0A0A0A;        /* black */
 
   --card: #FFFFFF;
-  --card-foreground: #0E1B17;
+  --card-foreground: #0A0A0A;
 
   --popover: #FFFFFF;
-  --popover-foreground: #0E1B17;
+  --popover-foreground: #0A0A0A;
 
-  --primary: #062C22;          /* near-black emerald */
-  --primary-foreground: #F7F6F1;
+  --primary: #0A0A0A;           /* black */
+  --primary-foreground: #F8F4EA;
 
-  --secondary: #ECEAE0;        /* soft sand */
-  --secondary-foreground: #0E1B17;
+  --secondary: #EFE9DC;         /* ivory-deep */
+  --secondary-foreground: #0A0A0A;
 
-  --muted: #EFEDE2;            /* warm muted */
-  --muted-foreground: #5C6B66; /* warm slate */
+  --muted: #F2EDE2;             /* warm muted */
+  --muted-foreground: #5A5A5A;
 
-  --accent: #059669;           /* vibrant emerald */
-  --accent-foreground: #FFFFFF;
+  --accent: #C9A961;            /* champagne gold */
+  --accent-foreground: #0A0A0A;
 
-  --accent-2: #F59E0B;         /* warm amber */
-  --accent-2-foreground: #0E1B17;
+  --accent-2: #DCC591;          /* light gold */
+  --accent-2-foreground: #0A0A0A;
 
-  --destructive: #DC2626;
+  --destructive: #B91C1C;
 
-  --border: #DDD9CB;           /* warm border */
-  --input: #DDD9CB;
-  --ring: #059669;
+  --border: #E8DFCC;            /* warm border */
+  --input: #E8DFCC;
+  --ring: #C9A961;
 
-  --chart-1: #059669;
-  --chart-2: #F59E0B;
-  --chart-3: #0E1B17;
-  --chart-4: #10B981;
-  --chart-5: #EF4444;
+  --chart-1: #0A0A0A;
+  --chart-2: #C9A961;
+  --chart-3: #A88940;
+  --chart-4: #DCC591;
+  --chart-5: #B91C1C;
 
   --sidebar: #FFFFFF;
-  --sidebar-foreground: #0E1B17;
-  --sidebar-primary: #062C22;
-  --sidebar-primary-foreground: #F7F6F1;
-  --sidebar-accent: #ECEAE0;
-  --sidebar-accent-foreground: #0E1B17;
-  --sidebar-border: #DDD9CB;
-  --sidebar-ring: #059669;
-
-  /* WhatsApp brand green */
-  --whatsapp: #25D366;
-  --whatsapp-dark: #1EBE5D;
+  --sidebar-foreground: #0A0A0A;
+  --sidebar-primary: #0A0A0A;
+  --sidebar-primary-foreground: #F8F4EA;
+  --sidebar-accent: #EFE9DC;
+  --sidebar-accent-foreground: #0A0A0A;
+  --sidebar-border: #E8DFCC;
+  --sidebar-ring: #C9A961;
 }
 
 @layer base {
@@ -123,33 +129,33 @@ html {
 }
 
 ::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: #ECEAE0; }
-::-webkit-scrollbar-thumb { background: #B5B2A4; border-radius: 5px; }
-::-webkit-scrollbar-thumb:hover { background: #059669; }
+::-webkit-scrollbar-track { background: #EFE9DC; }
+::-webkit-scrollbar-thumb { background: #C9A961; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #A88940; }
 
 /* Background patterns */
 .dot-pattern {
-  background-image: radial-gradient(rgba(14, 27, 23, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(10, 10, 10, 0.05) 1px, transparent 1px);
   background-size: 22px 22px;
 }
 
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(201, 169, 97, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 169, 97, 0.08) 1px, transparent 1px);
   background-size: 44px 44px;
 }
 
-/* Emerald gradient text */
-.emerald-text {
-  background: linear-gradient(135deg, #10B981 0%, #34D399 50%, #059669 100%);
+/* Gold gradient text */
+.gold-text {
+  background: linear-gradient(135deg, #DCC591 0%, #C9A961 50%, #A88940 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
 
-/* Marquee animation for rate ticker and brand strip */
+/* Marquee animation for brand strip */
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -165,24 +171,13 @@ html {
   animation-play-state: paused;
 }
 
-/* Float animation */
+/* Subtle float animation for hero deck */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-14px); }
+  50% { transform: translateY(-8px); }
 }
 .animate-float {
-  animation: float 5s ease-in-out infinite;
-}
-
-/* Shine sweep for primary CTA */
-@keyframes shine {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-.shine-text {
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
-  background-size: 200% auto;
-  animation: shine 3s linear infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
 /* Card hover lift */
@@ -196,7 +191,7 @@ html {
 
 /* Pulse ring for floating WhatsApp */
 @keyframes pulse-ring {
-  0% { transform: scale(0.9); opacity: 0.6; }
+  0% { transform: scale(0.9); opacity: 0.5; }
   70% { transform: scale(1.3); opacity: 0; }
   100% { transform: scale(1.3); opacity: 0; }
 }
@@ -205,7 +200,7 @@ html {
   position: absolute;
   inset: 0;
   border-radius: 9999px;
-  background: rgba(37, 211, 102, 0.6);
-  animation: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: rgba(201, 169, 97, 0.5);
+  animation: pulse-ring 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   z-index: -1;
 }

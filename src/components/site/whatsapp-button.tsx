@@ -7,15 +7,21 @@ interface WhatsAppButtonProps {
   message?: string;
   label?: string;
   className?: string;
-  variant?: "green" | "outline" | "dark" | "emerald";
+  variant?: "primary" | "outline" | "light";
   size?: "default" | "lg" | "sm";
 }
 
+/**
+ * Reusable WhatsApp CTA button.
+ * Uses the Black + Champagne Gold theme — black background, gold accents.
+ * The WhatsApp glyph is preserved for brand recognition, but the button
+ * itself follows the site palette (no green theme).
+ */
 export function WhatsAppButton({
   message = "Hello P-Cornel Trading, I'd like to trade a gift card.",
   label = "Chat on WhatsApp",
   className,
-  variant = "green",
+  variant = "primary",
   size = "default",
 }: WhatsAppButtonProps) {
   const sizeClasses = {
@@ -25,13 +31,12 @@ export function WhatsAppButton({
   };
 
   const variantClasses = {
-    green:
-      "bg-[#25D366] text-white hover:bg-[#1EBE5D] shadow-lg shadow-[#25D366]/25 hover:shadow-[#25D366]/40",
+    primary:
+      "bg-[#0A0A0A] text-[#F8F4EA] hover:bg-[#1A1A1A] border border-[#C9A961]/40 hover:border-[#C9A961] shadow-lg shadow-black/15",
     outline:
-      "bg-transparent text-[#062C22] border-2 border-[#062C22] hover:bg-[#062C22] hover:text-[#F7F6F1]",
-    dark: "bg-[#062C22] text-[#F7F6F1] hover:bg-[#0E1B17] shadow-lg shadow-[#062C22]/25",
-    emerald:
-      "bg-[#059669] text-white hover:bg-[#047857] shadow-lg shadow-[#059669]/25 hover:shadow-[#059669]/40",
+      "bg-transparent text-[#0A0A0A] border-2 border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-[#F8F4EA]",
+    light:
+      "bg-[#F8F4EA] text-[#0A0A0A] hover:bg-white border border-[#C9A961]/40 hover:border-[#C9A961] shadow-lg shadow-black/10",
   };
 
   return (
@@ -48,7 +53,7 @@ export function WhatsAppButton({
     >
       <svg
         viewBox="0 0 24 24"
-        className="h-5 w-5"
+        className="h-5 w-5 text-[#C9A961]"
         fill="currentColor"
         aria-hidden="true"
       >

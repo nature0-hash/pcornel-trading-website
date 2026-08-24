@@ -1,29 +1,37 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Zap, Star, Sparkles } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import { WhatsAppButton } from "./whatsapp-button";
 import {
-  AmazonCard,
   SteamCard,
-  PlayStationCard,
   ITunesCard,
-  VisaCard,
-  NetflixCard,
+  GooglePlayCard,
+  RazerGoldCard,
 } from "./brand-cards";
 
+/**
+ * Hero section.
+ *
+ * Left column: brand messaging, headline, CTAs and trust mini-stats.
+ * Right column: a clean layered deck of four gift cards (Steam, Apple,
+ * Google Play, Razer Gold) arranged in a descending diagonal stack with
+ * subtle 3D positioning and smooth floating animation.
+ *
+ * No payout dashboards, security badges, fake money figures or transaction
+ * panels — the focus is purely on the four gift cards.
+ */
 export function Hero() {
   return (
     <section
       id="home"
-      className="relative pt-28 md:pt-36 pb-16 md:pb-20 overflow-hidden bg-[#F7F6F1]"
+      className="relative pt-28 md:pt-36 pb-16 md:pb-20 overflow-hidden bg-[#F8F4EA]"
     >
       {/* Decorative dot pattern */}
       <div className="absolute inset-0 dot-pattern opacity-70 pointer-events-none" />
 
-      {/* Decorative blobs */}
-      <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-[#059669]/15 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 -left-32 h-96 w-96 rounded-full bg-[#F59E0B]/10 blur-3xl pointer-events-none" />
+      {/* Decorative gold blob */}
+      <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-[#C9A961]/15 blur-3xl pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -32,26 +40,26 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="lg:col-span-7 text-center lg:text-left"
+            className="lg:col-span-6 text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 rounded-full bg-white border border-[#DDD9CB] px-4 py-1.5 mb-6 shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white border border-[#E8DFCC] px-4 py-1.5 mb-6 shadow-sm">
               <span className="flex">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className="h-3.5 w-3.5 fill-[#F59E0B] text-[#F59E0B]"
+                    className="h-3.5 w-3.5 fill-[#C9A961] text-[#C9A961]"
                   />
                 ))}
               </span>
-              <span className="text-xs font-semibold text-[#062C22]">
-                Trusted by 12,000+ traders across 30+ countries
+              <span className="text-xs font-semibold text-[#0A0A0A]">
+                Trusted by traders worldwide
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#062C22] leading-[1.02] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#0A0A0A] leading-[1.02] tracking-tight">
               Turn gift cards into{" "}
               <span className="relative inline-block">
-                <span className="emerald-text">instant cash</span>
+                <span className="gold-text">instant cash</span>
                 <svg
                   className="absolute -bottom-2 left-0 w-full"
                   viewBox="0 0 300 12"
@@ -60,7 +68,7 @@ export function Hero() {
                 >
                   <path
                     d="M2 9C50 3 150 3 298 9"
-                    stroke="#059669"
+                    stroke="#C9A961"
                     strokeWidth="3"
                     strokeLinecap="round"
                   />
@@ -70,11 +78,10 @@ export function Hero() {
               in five minutes flat.
             </h1>
 
-            <p className="mt-6 text-base sm:text-lg text-[#5C6B66] max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="mt-6 text-base sm:text-lg text-[#5A5A5A] max-w-xl mx-auto lg:mx-0 leading-relaxed">
               P-CORNEL TRADING LIMITED converts unused Amazon, Steam, iTunes,
-              Google Play, Xbox, PlayStation, Visa and 120+ other gift cards
-              into instant naira, mobile money or bank payouts, paid fast and
-              fair, every single time.
+              Google Play, Razer Gold and many other gift cards into fast,
+              reliable payouts, handled with care and verified by a real team.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
@@ -85,7 +92,7 @@ export function Hero() {
               />
               <a
                 href="#how-it-works"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-[#062C22] border-2 border-[#062C22]/15 rounded-full hover:border-[#062C22] hover:bg-white transition-all duration-300 hover:scale-[1.02]"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-[#0A0A0A] border-2 border-[#0A0A0A]/15 rounded-full hover:border-[#0A0A0A] hover:bg-white transition-all duration-300 hover:scale-[1.02]"
               >
                 How it works
                 <ArrowRight className="h-5 w-5" />
@@ -94,20 +101,20 @@ export function Hero() {
 
             {/* Mini stats */}
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
-              <Stat value="12K+" label="Traders paid" />
-              <Stat value="120+" label="Card brands" />
-              <Stat value="~5 min" label="Avg payout" />
+              <Stat value="Global" label="Trading desk" />
+              <Stat value="Trusted" label="Verification" />
+              <Stat value="~5 min" label="Avg response" />
             </div>
           </motion.div>
 
-          {/* Right: card stack */}
+          {/* Right: 4-card layered deck */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-            className="lg:col-span-5 relative"
+            className="lg:col-span-6"
           >
-            <HeroCardStack />
+            <HeroCardDeck />
           </motion.div>
         </div>
       </div>
@@ -118,174 +125,82 @@ export function Hero() {
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div className="text-center lg:text-left">
-      <div className="text-2xl sm:text-3xl font-bold text-[#062C22]">
+      <div className="text-2xl sm:text-3xl font-bold text-[#0A0A0A]">
         {value}
       </div>
-      <div className="text-xs text-[#5C6B66] font-medium mt-0.5">{label}</div>
+      <div className="text-xs text-[#5A5A5A] font-medium mt-0.5">{label}</div>
     </div>
   );
 }
 
-function HeroCardStack() {
+/**
+ * Layered gift-card deck:
+ *
+ *              [ STEAM ]
+ *           [ APPLE      ]
+ *        [ GOOGLE PLAY    ]
+ *     [ RAZER GOLD          ]
+ *
+ * Each card is offset down-and-left from the previous, creating a cascading
+ * diagonal stack with depth, shadow and subtle floating animation.
+ */
+function HeroCardDeck() {
   return (
-    <div className="relative max-w-md mx-auto h-[420px] sm:h-[460px]">
-      {/* Background glow */}
-      <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[#059669]/15 via-transparent to-[#F59E0B]/15 blur-2xl" />
+    <div className="relative mx-auto w-full max-w-[560px] aspect-[5/4] sm:aspect-[6/4]">
+      {/* Ambient gold glow */}
+      <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[#C9A961]/20 via-transparent to-[#C9A961]/10 blur-2xl" />
 
-      {/* Backdrop panel */}
-      <div className="absolute inset-x-4 inset-y-8 sm:inset-y-12 rounded-[1.75rem] bg-white border border-[#DDD9CB] shadow-2xl shadow-[#062C22]/10 overflow-hidden">
-        <div className="absolute inset-0 dot-pattern opacity-60" />
-        <div className="relative h-full p-5 flex flex-col justify-between">
-          <div className="flex items-start justify-between">
-            <div>
-              <div className="text-[10px] uppercase tracking-[0.22em] text-[#059669] font-semibold">
-                Live Trade
-              </div>
-              <div className="text-sm font-bold text-[#062C22] mt-1">
-                Verified payout · 04:21 PM
-              </div>
-            </div>
-            <div className="inline-flex items-center gap-1 rounded-full bg-[#059669]/10 px-2.5 py-1">
-              <Sparkles className="h-3 w-3 text-[#059669]" />
-              <span className="text-[10px] font-bold text-[#059669] uppercase tracking-wider">
-                Verified
-              </span>
-            </div>
-          </div>
-
-          {/* Featured card on the panel */}
-          <div className="relative -mx-1">
-            <motion.div
-              className="animate-float"
-              style={{ animationDelay: "0s" }}
-              initial={{ opacity: 0, scale: 0.9, rotate: -3 }}
-              animate={{ opacity: 1, scale: 1, rotate: -3 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              <AmazonCard />
-            </motion.div>
-          </div>
-
-          <div className="grid grid-cols-3 gap-2 text-center">
-            <MiniStat value="$100" label="Card value" />
-            <MiniStat value="₦118,000" label="Payout" highlight />
-            <MiniStat value="3 min" label="Verified" />
-          </div>
-        </div>
-      </div>
-
-      {/* Floating cards */}
+      {/* STEAM — top of the deck */}
       <motion.div
-        className="absolute top-2 -right-1 sm:right-2 rotate-[8deg] animate-float z-10"
+        className="absolute top-0 right-0 w-[60%] sm:w-[55%] z-40 animate-float"
+        style={{ animationDelay: "0s" }}
+        initial={{ opacity: 0, y: -30, rotate: 4 }}
+        animate={{ opacity: 1, y: 0, rotate: 4 }}
+        transition={{ delay: 0.25, duration: 0.6, ease: "easeOut" }}
+      >
+        <div className="shadow-2xl shadow-black/30 rounded-2xl">
+          <SteamCard />
+        </div>
+      </motion.div>
+
+      {/* APPLE — second from top, offset down-left */}
+      <motion.div
+        className="absolute top-[18%] right-[12%] sm:right-[20%] w-[60%] sm:w-[55%] z-30 animate-float"
         style={{ animationDelay: "0.6s" }}
-        initial={{ opacity: 0, scale: 0.5, y: -20 }}
-        animate={{ opacity: 1, scale: 0.55, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
+        initial={{ opacity: 0, y: -20, rotate: -3 }}
+        animate={{ opacity: 1, y: 0, rotate: -3 }}
+        transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
       >
-        <SteamCard variant="mini" />
+        <div className="shadow-2xl shadow-black/30 rounded-2xl">
+          <ITunesCard />
+        </div>
       </motion.div>
 
+      {/* GOOGLE PLAY — third, further down-left */}
       <motion.div
-        className="absolute top-24 -left-3 sm:-left-6 rotate-[-10deg] animate-float z-10"
+        className="absolute top-[36%] right-[24%] sm:right-[40%] w-[60%] sm:w-[55%] z-20 animate-float"
         style={{ animationDelay: "1.2s" }}
-        initial={{ opacity: 0, scale: 0.5, y: 20 }}
-        animate={{ opacity: 1, scale: 0.55, y: 0 }}
-        transition={{ delay: 0.7, duration: 0.5 }}
+        initial={{ opacity: 0, y: -20, rotate: 3 }}
+        animate={{ opacity: 1, y: 0, rotate: 3 }}
+        transition={{ delay: 0.55, duration: 0.6, ease: "easeOut" }}
       >
-        <PlayStationCard variant="mini" />
+        <div className="shadow-2xl shadow-black/30 rounded-2xl">
+          <GooglePlayCard />
+        </div>
       </motion.div>
 
+      {/* RAZER GOLD — bottom of the deck, far left */}
       <motion.div
-        className="absolute bottom-32 -right-2 sm:right-4 rotate-[6deg] animate-float z-10"
+        className="absolute top-[54%] right-[36%] sm:right-[60%] w-[60%] sm:w-[55%] z-10 animate-float"
         style={{ animationDelay: "1.8s" }}
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 0.55 }}
-        transition={{ delay: 0.9, duration: 0.5 }}
+        initial={{ opacity: 0, y: -20, rotate: -4 }}
+        animate={{ opacity: 1, y: 0, rotate: -4 }}
+        transition={{ delay: 0.7, duration: 0.6, ease: "easeOut" }}
       >
-        <ITunesCard variant="mini" />
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-6 -left-2 sm:-left-4 rotate-[-6deg] animate-float z-10"
-        style={{ animationDelay: "2.4s" }}
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 0.55 }}
-        transition={{ delay: 1.1, duration: 0.5 }}
-      >
-        <VisaCard variant="mini" />
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-32 -left-4 sm:-left-8 rotate-[4deg] animate-float z-10"
-        style={{ animationDelay: "0.9s" }}
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 0.5 }}
-        transition={{ delay: 1.3, duration: 0.5 }}
-      >
-        <NetflixCard variant="mini" />
-      </motion.div>
-
-      {/* Trust pill bottom */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.4 }}
-        className="absolute -bottom-2 right-0 bg-white rounded-2xl shadow-xl shadow-[#062C22]/10 p-3 flex items-center gap-2.5 border border-[#DDD9CB] z-20"
-      >
-        <div className="h-9 w-9 rounded-xl bg-[#059669]/10 flex items-center justify-center">
-          <ShieldCheck className="h-5 w-5 text-[#059669]" />
-        </div>
-        <div>
-          <div className="text-xs font-bold text-[#062C22]">Bank-grade security</div>
-          <div className="text-[10px] text-[#5C6B66]">Every trade verified</div>
+        <div className="shadow-2xl shadow-black/30 rounded-2xl">
+          <RazerGoldCard />
         </div>
       </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2 }}
-        className="absolute -top-2 left-0 bg-white rounded-2xl shadow-xl shadow-[#062C22]/10 p-3 flex items-center gap-2.5 border border-[#DDD9CB] z-20"
-      >
-        <div className="h-9 w-9 rounded-xl bg-[#F59E0B]/15 flex items-center justify-center">
-          <Zap className="h-5 w-5 text-[#F59E0B]" />
-        </div>
-        <div>
-          <div className="text-xs font-bold text-[#062C22]">Instant pay</div>
-          <div className="text-[10px] text-[#5C6B66]">~5 min average</div>
-        </div>
-      </motion.div>
-    </div>
-  );
-}
-
-function MiniStat({
-  value,
-  label,
-  highlight,
-}: {
-  value: string;
-  label: string;
-  highlight?: boolean;
-}) {
-  return (
-    <div
-      className={`rounded-xl p-2.5 border ${
-        highlight
-          ? "bg-[#059669]/10 border-[#059669]/30"
-          : "bg-[#ECEAE0] border-[#DDD9CB]"
-      }`}
-    >
-      <div
-        className={`text-xs font-bold ${
-          highlight ? "text-[#059669]" : "text-[#062C22]"
-        }`}
-      >
-        {value}
-      </div>
-      <div className="text-[9px] text-[#5C6B66] uppercase tracking-wider mt-0.5">
-        {label}
-      </div>
     </div>
   );
 }

@@ -1,20 +1,21 @@
 "use client";
 
 /**
- * P-CORNEL TRADING LIMITED — premium dark gift card components.
+ * P-CORNEL TRADING LIMITED — gift card components.
  *
- * Each card is rendered as an SVG/CSS composition that mimics the actual
- * brand's gift card design but uses a unified "premium dark" treatment
- * (deep panel + brand-tinted gradient + brand mark + chip + footer).
- * Cards have two variants: "full" (gallery / featured) and "mini" (marquee).
+ * Clean, premium card designs that showcase each brand's identity without
+ * internal clutter. No fake card numbers, no P-CORNEL text inside the cards,
+ * no decorative subtitles. Just the brand mark and the gift card title.
+ *
+ * Cards support two variants:
+ *  - "full"  → gallery / featured
+ *  - "mini"  → marquee strip
  */
 
 export type BrandCardProps = {
   variant?: "full" | "mini";
   className?: string;
 };
-
-const FOOTER = "P-CORNEL";
 
 /* ----------------------------------------------------------------------------
  * Amazon
@@ -23,12 +24,13 @@ export function AmazonCard({ variant = "full", className = "" }: BrandCardProps)
   if (variant === "mini") {
     return (
       <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
+        className={`relative w-40 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
         style={{ background: "linear-gradient(135deg, #FF9900 0%, #FFB84D 100%)" }}
       >
-        <AmazonMark className="absolute top-2 left-2 h-3.5" />
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-[#232F3E]">GIFT CARD</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-200/80 ring-1 ring-white/50" />
+        <AmazonMark className="absolute top-2.5 left-3 h-4" />
+        <div className="absolute bottom-2 left-3 text-[8px] font-bold tracking-[0.18em] text-[#232F3E]">
+          GIFT CARD
+        </div>
       </div>
     );
   }
@@ -37,29 +39,23 @@ export function AmazonCard({ variant = "full", className = "" }: BrandCardProps)
       className={`relative h-56 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/10 ${className}`}
       style={{ background: "linear-gradient(135deg, #FF9900 0%, #FFB84D 55%, #FF8A00 100%)" }}
     >
-      <div className="absolute inset-0 opacity-25 mix-blend-overlay">
+      <div className="absolute inset-0 opacity-20 mix-blend-overlay">
         <svg viewBox="0 0 200 100" className="w-full h-full" preserveAspectRatio="none">
           <circle cx="30" cy="20" r="35" fill="white" />
           <circle cx="170" cy="85" r="40" fill="white" />
         </svg>
       </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-[#232F3E]">
+      <div className="relative h-full p-6 flex flex-col justify-between text-[#232F3E]">
         <div>
-          <div className="text-[9px] uppercase tracking-[0.25em] opacity-70 font-semibold">Gift Card</div>
-          <AmazonMark className="mt-2.5 h-6" />
+          <AmazonMark className="h-7" />
         </div>
-        <div className="flex items-end justify-between">
-          <div>
-            <div className="text-2xl font-extrabold tracking-tight leading-none">amazon</div>
-            <div className="text-[9px] opacity-70 mt-1 font-semibold">E-CODE / PHYSICAL</div>
+        <div>
+          <div className="text-[10px] uppercase tracking-[0.3em] opacity-70 font-semibold mb-1">
+            Gift Card
           </div>
-          <div className="h-7 w-9 rounded-md bg-yellow-200/80 ring-1 ring-white/60 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-[#232F3E]/30" />
+          <div className="text-2xl font-extrabold tracking-tight leading-none">
+            amazon
           </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-70">
-          <span>{FOOTER}</span>
-          <span>•••• 4242</span>
         </div>
       </div>
     </div>
@@ -69,8 +65,10 @@ export function AmazonCard({ variant = "full", className = "" }: BrandCardProps)
 function AmazonMark({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 100 30" className={className} fill="currentColor">
-      <text x="0" y="22" fontFamily="Arial, sans-serif" fontSize="24" fontWeight="800" fill="#232F3E">amazon</text>
-      <path d="M 5 27 Q 50 35 95 27" stroke="#FF9900" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+      <text x="0" y="22" fontFamily="Arial, sans-serif" fontSize="24" fontWeight="800" fill="#232F3E">
+        amazon
+      </text>
+      <path d="M 5 27 Q 50 35 95 27" stroke="#232F3E" strokeWidth="2.5" fill="none" strokeLinecap="round" />
     </svg>
   );
 }
@@ -82,12 +80,13 @@ export function SteamCard({ variant = "full", className = "" }: BrandCardProps) 
   if (variant === "mini") {
     return (
       <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/30 ${className}`}
+        className={`relative w-40 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/30 ${className}`}
         style={{ background: "linear-gradient(135deg, #1B2838 0%, #2A475E 100%)" }}
       >
-        <SteamMark className="absolute top-2 left-2 h-4" />
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">STEAM</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-400/50 ring-1 ring-white/20" />
+        <SteamMark className="absolute top-2.5 left-3 h-4" />
+        <div className="absolute bottom-2 left-3 text-[8px] font-bold tracking-[0.18em] text-white">
+          GIFT CARD
+        </div>
       </div>
     );
   }
@@ -102,20 +101,15 @@ export function SteamCard({ variant = "full", className = "" }: BrandCardProps) 
           <circle cx="180" cy="15" r="35" fill="white" />
         </svg>
       </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
+      <div className="relative h-full p-6 flex flex-col justify-between text-white">
         <div>
-          <div className="text-[9px] uppercase tracking-[0.25em] opacity-60 font-semibold">Gift Card</div>
-          <SteamMark className="mt-3 h-7" />
+          <SteamMark className="h-7" />
         </div>
-        <div className="flex items-end justify-between">
-          <div className="text-2xl font-extrabold tracking-tight leading-none">WALLET CODE</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-400/60 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
+        <div>
+          <div className="text-[10px] uppercase tracking-[0.3em] opacity-60 font-semibold mb-1">
+            Gift Card
           </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-60">
-          <span>{FOOTER}</span>
-          <span>•••• 1337</span>
+          <div className="text-2xl font-extrabold tracking-tight leading-none">Steam</div>
         </div>
       </div>
     </div>
@@ -128,7 +122,9 @@ function SteamMark({ className = "" }: { className?: string }) {
       <circle cx="12" cy="15" r="9" fill="#ffffff" />
       <circle cx="12" cy="15" r="4.5" fill="#1B2838" />
       <circle cx="45" cy="17" r="5" fill="#ffffff" />
-      <text x="55" y="20" fontFamily="Arial Black, sans-serif" fontSize="14" fontWeight="900" fill="#ffffff" letterSpacing="1">STEAM</text>
+      <text x="55" y="20" fontFamily="Arial Black, sans-serif" fontSize="14" fontWeight="900" fill="#ffffff" letterSpacing="1">
+        STEAM
+      </text>
     </svg>
   );
 }
@@ -140,12 +136,13 @@ export function ITunesCard({ variant = "full", className = "" }: BrandCardProps)
   if (variant === "mini") {
     return (
       <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
+        className={`relative w-40 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
         style={{ background: "linear-gradient(135deg, #FB5BC5 0%, #FF8FB1 50%, #FFB347 100%)" }}
       >
-        <AppleMark className="absolute top-2 right-2 h-4 text-white" />
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">iTunes</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-200/70 ring-1 ring-white/30" />
+        <AppleMark className="absolute top-2.5 right-3 h-5 text-white" />
+        <div className="absolute bottom-2 left-3 text-[8px] font-bold tracking-[0.18em] text-white">
+          GIFT CARD
+        </div>
       </div>
     );
   }
@@ -165,23 +162,15 @@ export function ITunesCard({ variant = "full", className = "" }: BrandCardProps)
           <rect width="200" height="100" fill="url(#it-grad)" />
         </svg>
       </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
+      <div className="relative h-full p-6 flex flex-col justify-between text-white">
         <div className="flex items-start justify-between">
-          <div>
-            <div className="text-[9px] uppercase tracking-[0.25em] opacity-80 font-semibold">Gift Card</div>
-            <div className="mt-2.5 text-3xl font-extrabold tracking-tight leading-none">iTunes</div>
-          </div>
           <AppleMark className="h-9 text-white" />
         </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-80">APP STORE • MUSIC • TV+</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-200/70 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
+        <div>
+          <div className="text-[10px] uppercase tracking-[0.3em] opacity-80 font-semibold mb-1">
+            Gift Card
           </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-80">
-          <span>{FOOTER}</span>
-          <span>•••• 0991</span>
+          <div className="text-3xl font-extrabold tracking-tight leading-none">iTunes</div>
         </div>
       </div>
     </div>
@@ -203,12 +192,13 @@ export function GooglePlayCard({ variant = "full", className = "" }: BrandCardPr
   if (variant === "mini") {
     return (
       <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
+        className={`relative w-40 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
         style={{ background: "linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)" }}
       >
-        <GooglePlayMark className="absolute top-2 left-2 h-4" />
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-slate-700">Google Play</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-400/70 ring-1 ring-slate-300" />
+        <GooglePlayMark className="absolute top-2.5 left-3 h-5" />
+        <div className="absolute bottom-2 left-3 text-[8px] font-bold tracking-[0.18em] text-slate-700">
+          GIFT CARD
+        </div>
       </div>
     );
   }
@@ -228,23 +218,17 @@ export function GooglePlayCard({ variant = "full", className = "" }: BrandCardPr
           <rect width="200" height="100" fill="url(#gp-bg)" />
         </svg>
       </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-slate-800">
+      <div className="relative h-full p-6 flex flex-col justify-between text-slate-800">
         <div>
-          <div className="text-[9px] uppercase tracking-[0.25em] opacity-60 font-semibold">Gift Card</div>
-          <div className="mt-3 flex items-center gap-2">
-            <GooglePlayMark className="h-7" />
-            <span className="text-xl font-extrabold text-slate-800">Google Play</span>
-          </div>
+          <GooglePlayMark className="h-7" />
         </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-60 text-slate-600">PLAY STORE CREDIT</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-400/80 ring-1 ring-slate-300 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-slate-400/40" />
+        <div>
+          <div className="text-[10px] uppercase tracking-[0.3em] opacity-60 font-semibold mb-1">
+            Gift Card
           </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-60 text-slate-600">
-          <span>{FOOTER}</span>
-          <span>•••• 7788</span>
+          <div className="text-2xl font-extrabold tracking-tight text-slate-800">
+            Google Play
+          </div>
         </div>
       </div>
     </div>
@@ -264,18 +248,94 @@ function GooglePlayMark({ className = "" }: { className?: string }) {
 }
 
 /* ----------------------------------------------------------------------------
+ * Razer Gold
+ * -------------------------------------------------------------------------- */
+export function RazerGoldCard({ variant = "full", className = "" }: BrandCardProps) {
+  if (variant === "mini") {
+    return (
+      <div
+        className={`relative w-40 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/30 ${className}`}
+        style={{ background: "linear-gradient(135deg, #0a0a0a 0%, #1f1f1f 50%, #0a0a0a 100%)" }}
+      >
+        <RazerMark className="absolute top-2.5 left-3 h-4" />
+        <div className="absolute bottom-2 left-3 text-[8px] font-bold tracking-[0.18em] text-[#44D62C]">
+          GIFT CARD
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div
+      className={`relative h-56 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/30 ${className}`}
+      style={{ background: "linear-gradient(135deg, #0a0a0a 0%, #1f1f1f 50%, #0a0a0a 100%)" }}
+    >
+      <div className="absolute inset-0 opacity-25 mix-blend-screen">
+        <svg viewBox="0 0 200 100" className="w-full h-full" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="rz-shine" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#44D62C" stopOpacity="0.25" />
+              <stop offset="100%" stopColor="#44D62C" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <rect width="200" height="100" fill="url(#rz-shine)" />
+          <circle cx="170" cy="20" r="40" fill="#44D62C" opacity="0.1" />
+        </svg>
+      </div>
+      <div className="absolute top-4 right-4 h-1.5 w-1.5 rounded-full bg-[#44D62C] shadow-[0_0_8px_#44D62C]" />
+      <div className="relative h-full p-6 flex flex-col justify-between text-white">
+        <div>
+          <RazerMark className="h-6" />
+        </div>
+        <div>
+          <div className="text-[10px] uppercase tracking-[0.3em] text-[#44D62C] font-semibold mb-1">
+            Gift Card
+          </div>
+          <div className="text-2xl font-extrabold tracking-tight leading-none">Razer Gold</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function RazerMark({ className = "" }: { className?: string }) {
+  // Stylized snakeheads logo + wordmark
+  return (
+    <svg viewBox="0 0 120 30" className={className}>
+      <g fill="#44D62C">
+        {/* Three snakehead-like blades (Razer's signature mark) */}
+        <path d="M2 8 L14 22 L8 22 L0 12 Z" />
+        <path d="M10 6 L24 22 L18 22 L7 8 Z" opacity="0.85" />
+        <path d="M20 6 L34 22 L28 22 L17 8 Z" opacity="0.7" />
+      </g>
+      <text
+        x="42"
+        y="20"
+        fontFamily="Arial Black, sans-serif"
+        fontSize="13"
+        fontWeight="900"
+        fill="#ffffff"
+        letterSpacing="1.5"
+      >
+        RAZER
+      </text>
+    </svg>
+  );
+}
+
+/* ----------------------------------------------------------------------------
  * Xbox
  * -------------------------------------------------------------------------- */
 export function XboxCard({ variant = "full", className = "" }: BrandCardProps) {
   if (variant === "mini") {
     return (
       <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/30 ${className}`}
+        className={`relative w-40 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/30 ${className}`}
         style={{ background: "linear-gradient(135deg, #107C10 0%, #0E6B0E 100%)" }}
       >
-        <XboxMark className="absolute top-2 left-2 h-4" />
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">XBOX</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-300/60 ring-1 ring-white/30" />
+        <XboxMark className="absolute top-2.5 left-3 h-4" />
+        <div className="absolute bottom-2 left-3 text-[8px] font-bold tracking-[0.18em] text-white">
+          GIFT CARD
+        </div>
       </div>
     );
   }
@@ -289,23 +349,16 @@ export function XboxCard({ variant = "full", className = "" }: BrandCardProps) {
           <circle cx="40" cy="50" r="45" fill="white" />
         </svg>
       </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
+      <div className="relative h-full p-6 flex flex-col justify-between text-white">
+        <div className="flex items-center gap-2">
+          <XboxMark className="h-7" />
+          <span className="text-2xl font-extrabold tracking-tight">XBOX</span>
+        </div>
         <div>
-          <div className="text-[9px] uppercase tracking-[0.25em] opacity-70 font-semibold">Gift Card</div>
-          <div className="mt-3 flex items-center gap-2">
-            <XboxMark className="h-6" />
-            <span className="text-2xl font-extrabold tracking-tight">XBOX</span>
+          <div className="text-[10px] uppercase tracking-[0.3em] opacity-70 font-semibold mb-1">
+            Gift Card
           </div>
-        </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-70">GAME PASS • LIVE</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-300/70 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
-          </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-70">
-          <span>{FOOTER}</span>
-          <span>•••• 0451</span>
+          <div className="text-xl font-extrabold tracking-tight">Microsoft</div>
         </div>
       </div>
     </div>
@@ -327,12 +380,13 @@ export function PlayStationCard({ variant = "full", className = "" }: BrandCardP
   if (variant === "mini") {
     return (
       <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/30 ${className}`}
+        className={`relative w-40 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/30 ${className}`}
         style={{ background: "linear-gradient(135deg, #0070D1 0%, #003B7A 100%)" }}
       >
-        <PlayStationMark className="absolute top-2 left-2 h-4 text-white" />
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">PSN</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-300/60 ring-1 ring-white/30" />
+        <PlayStationMark className="absolute top-2.5 left-3 h-4 text-white" />
+        <div className="absolute bottom-2 left-3 text-[8px] font-bold tracking-[0.18em] text-white">
+          GIFT CARD
+        </div>
       </div>
     );
   }
@@ -346,23 +400,16 @@ export function PlayStationCard({ variant = "full", className = "" }: BrandCardP
           <path d="M0 70 Q 50 50 100 70 T 200 60 L 200 100 L 0 100 Z" fill="white" />
         </svg>
       </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
+      <div className="relative h-full p-6 flex flex-col justify-between text-white">
+        <div className="flex items-center gap-2">
+          <PlayStationMark className="h-7 text-white" />
+          <span className="text-2xl font-extrabold tracking-tight">PSN</span>
+        </div>
         <div>
-          <div className="text-[9px] uppercase tracking-[0.25em] opacity-70 font-semibold">Gift Card</div>
-          <div className="mt-3 flex items-center gap-2">
-            <PlayStationMark className="h-7 text-white" />
-            <span className="text-2xl font-extrabold tracking-tight">PSN</span>
+          <div className="text-[10px] uppercase tracking-[0.3em] opacity-70 font-semibold mb-1">
+            Gift Card
           </div>
-        </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-70">PLUS • STORE CREDIT</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-300/70 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
-          </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-70">
-          <span>{FOOTER}</span>
-          <span>•••• 2077</span>
+          <div className="text-xl font-extrabold tracking-tight">PlayStation</div>
         </div>
       </div>
     </div>
@@ -380,18 +427,63 @@ function PlayStationMark({ className = "", color = "currentColor" }: { className
 }
 
 /* ----------------------------------------------------------------------------
+ * Sephora
+ * -------------------------------------------------------------------------- */
+export function SephoraCard({ variant = "full", className = "" }: BrandCardProps) {
+  if (variant === "mini") {
+    return (
+      <div
+        className={`relative w-40 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
+        style={{ background: "linear-gradient(135deg, #0B0B0B 0%, #2A2A2A 100%)" }}
+      >
+        <span className="absolute top-2.5 left-3 text-[10px] font-bold tracking-[0.22em] text-white">
+          SEPHORA
+        </span>
+        <div className="absolute bottom-2 left-3 text-[8px] font-bold tracking-[0.18em] text-white/70">
+          GIFT CARD
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div
+      className={`relative h-56 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/20 ${className}`}
+      style={{ background: "linear-gradient(135deg, #0B0B0B 0%, #1F1F1F 50%, #0B0B0B 100%)" }}
+    >
+      <div className="absolute inset-0 opacity-20 mix-blend-screen">
+        <svg viewBox="0 0 200 100" className="w-full h-full" preserveAspectRatio="none">
+          <path d="M100 5 Q 110 30 100 50 Q 90 70 100 95" stroke="white" strokeWidth="1.5" fill="none" opacity="0.6" />
+        </svg>
+      </div>
+      <div className="relative h-full p-6 flex flex-col justify-between text-white">
+        <div>
+          <span className="text-sm font-bold tracking-[0.3em]">SEPHORA</span>
+        </div>
+        <div>
+          <div className="text-[10px] uppercase tracking-[0.3em] opacity-60 font-semibold mb-1">
+            Gift Card
+          </div>
+          <div className="text-2xl font-extrabold tracking-[0.1em]">Beauty</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ----------------------------------------------------------------------------
  * eBay
  * -------------------------------------------------------------------------- */
 export function EbayCard({ variant = "full", className = "" }: BrandCardProps) {
   if (variant === "mini") {
     return (
       <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
+        className={`relative w-40 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
         style={{ background: "linear-gradient(135deg, #E5322D 0%, #0064D2 50%, #F5AF02 100%)" }}
       >
-        <span className="absolute top-2 left-2 text-[10px] font-extrabold italic text-white">ebay</span>
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">GIFT CARD</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-200/70 ring-1 ring-white/30" />
+        <span className="absolute top-2.5 left-3 text-[11px] font-extrabold italic text-white">ebay</span>
+        <div className="absolute bottom-2 left-3 text-[8px] font-bold tracking-[0.18em] text-white">
+          GIFT CARD
+        </div>
       </div>
     );
   }
@@ -406,278 +498,15 @@ export function EbayCard({ variant = "full", className = "" }: BrandCardProps) {
           <circle cx="150" cy="50" r="40" fill="white" />
         </svg>
       </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
+      <div className="relative h-full p-6 flex flex-col justify-between text-white">
         <div>
-          <div className="text-[9px] uppercase tracking-[0.25em] opacity-80 font-semibold">Gift Card</div>
-          <div className="mt-3 text-4xl font-extrabold italic tracking-tight">ebay</div>
+          <div className="text-4xl font-extrabold italic tracking-tight">ebay</div>
         </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-80">ONLINE MARKETPLACE</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-200/80 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
-          </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-80">
-          <span>{FOOTER}</span>
-          <span>•••• 1234</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ----------------------------------------------------------------------------
- * Sephora
- * -------------------------------------------------------------------------- */
-export function SephoraCard({ variant = "full", className = "" }: BrandCardProps) {
-  if (variant === "mini") {
-    return (
-      <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
-        style={{ background: "linear-gradient(135deg, #0B0B0B 0%, #2A2A2A 100%)" }}
-      >
-        <span className="absolute top-2 left-2 text-[10px] font-bold tracking-[0.2em] text-white">SEPHORA</span>
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white/80">GIFT CARD</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-300/60 ring-1 ring-white/30" />
-      </div>
-    );
-  }
-  return (
-    <div
-      className={`relative h-56 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/20 ${className}`}
-      style={{ background: "linear-gradient(135deg, #0B0B0B 0%, #1F1F1F 50%, #0B0B0B 100%)" }}
-    >
-      <div className="absolute inset-0 opacity-20 mix-blend-screen">
-        <svg viewBox="0 0 200 100" className="w-full h-full" preserveAspectRatio="none">
-          <path d="M100 5 Q 110 30 100 50 Q 90 70 100 95" stroke="white" strokeWidth="1.5" fill="none" opacity="0.6" />
-        </svg>
-      </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
         <div>
-          <div className="text-[9px] uppercase tracking-[0.25em] opacity-60 font-semibold">Gift Card</div>
-          <div className="mt-3 text-2xl font-bold tracking-[0.15em]">SEPHORA</div>
-        </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-60">BEAUTY • FRAGRANCE</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-300/60 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
+          <div className="text-[10px] uppercase tracking-[0.3em] opacity-80 font-semibold mb-1">
+            Gift Card
           </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-60">
-          <span>{FOOTER}</span>
-          <span>•••• 8800</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ----------------------------------------------------------------------------
- * Netflix
- * -------------------------------------------------------------------------- */
-export function NetflixCard({ variant = "full", className = "" }: BrandCardProps) {
-  if (variant === "mini") {
-    return (
-      <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/30 ${className}`}
-        style={{ background: "linear-gradient(135deg, #E50914 0%, #831010 100%)" }}
-      >
-        <span className="absolute top-2 left-2 text-[10px] font-extrabold tracking-tight text-white">NETFLIX</span>
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">GIFT CARD</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-300/60 ring-1 ring-white/30" />
-      </div>
-    );
-  }
-  return (
-    <div
-      className={`relative h-56 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/30 ${className}`}
-      style={{ background: "linear-gradient(135deg, #E50914 0%, #831010 60%, #E50914 100%)" }}
-    >
-      <div className="absolute inset-0 opacity-20 mix-blend-screen">
-        <svg viewBox="0 0 200 100" className="w-full h-full" preserveAspectRatio="none">
-          <rect x="20" y="10" width="14" height="80" fill="white" transform="rotate(-3 27 50)" />
-          <rect x="40" y="10" width="14" height="80" fill="black" transform="rotate(-3 47 50)" />
-        </svg>
-      </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
-        <div>
-          <div className="text-[9px] uppercase tracking-[0.25em] opacity-70 font-semibold">Gift Card</div>
-          <div className="mt-3 text-3xl font-extrabold tracking-tight">NETFLIX</div>
-        </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-70">STREAMING SUBSCRIPTION</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-300/70 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
-          </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-70">
-          <span>{FOOTER}</span>
-          <span>•••• 1997</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ----------------------------------------------------------------------------
- * Spotify
- * -------------------------------------------------------------------------- */
-export function SpotifyCard({ variant = "full", className = "" }: BrandCardProps) {
-  if (variant === "mini") {
-    return (
-      <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/30 ${className}`}
-        style={{ background: "linear-gradient(135deg, #1DB954 0%, #0D7E36 100%)" }}
-      >
-        <SpotifyMark className="absolute top-2 left-2 h-4 text-white" />
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">SPOTIFY</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-300/60 ring-1 ring-white/30" />
-      </div>
-    );
-  }
-  return (
-    <div
-      className={`relative h-56 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/30 ${className}`}
-      style={{ background: "linear-gradient(135deg, #1DB954 0%, #0D7E36 60%, #1DB954 100%)" }}
-    >
-      <div className="absolute inset-0 opacity-15 mix-blend-screen">
-        <svg viewBox="0 0 200 100" className="w-full h-full" preserveAspectRatio="none">
-          <circle cx="160" cy="20" r="40" fill="white" />
-        </svg>
-      </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
-        <div>
-          <div className="text-[9px] uppercase tracking-[0.25em] opacity-70 font-semibold">Gift Card</div>
-          <div className="mt-3 flex items-center gap-2">
-            <SpotifyMark className="h-6 text-white" />
-            <span className="text-2xl font-extrabold tracking-tight">Spotify</span>
-          </div>
-        </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-70">PREMIUM • MUSIC</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-300/70 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
-          </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-70">
-          <span>{FOOTER}</span>
-          <span>•••• 2008</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function SpotifyMark({ className = "", color = "currentColor" }: { className?: string; color?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill={color}>
-      <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.37-.74.48-1.11.24-3.04-1.86-6.87-2.28-11.39-1.25-.43.1-.86-.17-.96-.6-.1-.43.17-.86.6-.96 4.94-1.13 9.18-.65 12.57 1.43.37.24.48.74.29 1.14zm1.47-3.27c-.3.45-.93.6-1.38.3-3.48-2.14-8.79-2.76-12.92-1.51-.53.16-1.1-.14-1.26-.67-.16-.53.14-1.1.67-1.26 4.71-1.43 10.56-.74 14.55 1.7.48.3.63.93.34 1.44zm.13-3.4C15.07 8.21 8.61 7.99 4.62 9.18c-.64.2-1.32-.16-1.52-.8s.16-1.32.8-1.52c4.59-1.39 11.75-1.13 16.41 1.44.58.34.77 1.09.43 1.67-.34.58-1.09.77-1.67.43z" />
-    </svg>
-  );
-}
-
-/* ----------------------------------------------------------------------------
- * Visa
- * -------------------------------------------------------------------------- */
-export function VisaCard({ variant = "full", className = "" }: BrandCardProps) {
-  if (variant === "mini") {
-    return (
-      <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
-        style={{ background: "linear-gradient(135deg, #1A1F71 0%, #2A2F8A 100%)" }}
-      >
-        <span className="absolute top-2 left-2 text-[11px] font-extrabold italic tracking-tight text-white">VISA</span>
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">PREPAID</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-300/70 ring-1 ring-white/30" />
-      </div>
-    );
-  }
-  return (
-    <div
-      className={`relative h-56 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/30 ${className}`}
-      style={{ background: "linear-gradient(135deg, #1A1F71 0%, #2A2F8A 60%, #1A1F71 100%)" }}
-    >
-      <div className="absolute inset-0 opacity-15 mix-blend-screen">
-        <svg viewBox="0 0 200 100" className="w-full h-full" preserveAspectRatio="none">
-          <circle cx="30" cy="20" r="35" fill="white" />
-          <circle cx="180" cy="80" r="35" fill="white" />
-        </svg>
-      </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
-        <div className="flex items-start justify-between">
-          <div>
-            <div className="text-[9px] uppercase tracking-[0.25em] opacity-60 font-semibold">Prepaid Card</div>
-            <div className="mt-2.5 text-3xl font-extrabold italic tracking-tight">VISA</div>
-          </div>
-          <div className="h-5 w-7 rounded-full bg-yellow-300/80 ring-1 ring-white/40" />
-        </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-60">DEBIT / PREPAID</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-300/70 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
-          </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-60">
-          <span>{FOOTER}</span>
-          <span>•••• 4111</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ----------------------------------------------------------------------------
- * Mastercard
- * -------------------------------------------------------------------------- */
-export function MastercardCard({ variant = "full", className = "" }: BrandCardProps) {
-  if (variant === "mini") {
-    return (
-      <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
-        style={{ background: "linear-gradient(135deg, #1A1F71 0%, #2A2F8A 100%)" }}
-      >
-        <div className="absolute top-2 left-2 flex items-center -space-x-2">
-          <div className="h-4 w-4 rounded-full bg-[#EB001B]" />
-          <div className="h-4 w-4 rounded-full bg-[#F79E1B] mix-blend-multiply" />
-        </div>
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">PREPAID</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-300/70 ring-1 ring-white/30" />
-      </div>
-    );
-  }
-  return (
-    <div
-      className={`relative h-56 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/30 ${className}`}
-      style={{ background: "linear-gradient(135deg, #1A1F71 0%, #2A2F8A 60%, #1A1F71 100%)" }}
-    >
-      <div className="absolute inset-0 opacity-15 mix-blend-screen">
-        <svg viewBox="0 0 200 100" className="w-full h-full" preserveAspectRatio="none">
-          <circle cx="40" cy="80" r="40" fill="white" />
-          <circle cx="170" cy="20" r="35" fill="white" />
-        </svg>
-      </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
-        <div className="flex items-start justify-between">
-          <div>
-            <div className="text-[9px] uppercase tracking-[0.25em] opacity-60 font-semibold">Prepaid Card</div>
-            <div className="mt-3 flex items-center gap-3">
-              <div className="flex items-center -space-x-3">
-                <div className="h-7 w-7 rounded-full bg-[#EB001B]" />
-                <div className="h-7 w-7 rounded-full bg-[#F79E1B] mix-blend-multiply" />
-              </div>
-              <span className="text-sm font-semibold tracking-wide">mastercard</span>
-            </div>
-          </div>
-        </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-60">DEBIT / PREPAID</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-300/70 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
-          </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-60">
-          <span>{FOOTER}</span>
-          <span>•••• 5500</span>
+          <div className="text-xl font-extrabold tracking-tight">Marketplace</div>
         </div>
       </div>
     </div>
@@ -691,12 +520,13 @@ export function WalmartCard({ variant = "full", className = "" }: BrandCardProps
   if (variant === "mini") {
     return (
       <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
+        className={`relative w-40 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
         style={{ background: "linear-gradient(135deg, #0071CE 0%, #004F9A 100%)" }}
       >
-        <WalmartMark className="absolute top-2 left-2 h-4 text-[#FFC220]" />
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">WALMART</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-300/70 ring-1 ring-white/30" />
+        <WalmartMark className="absolute top-2.5 left-3 h-4 text-[#FFC220]" />
+        <div className="absolute bottom-2 left-3 text-[8px] font-bold tracking-[0.18em] text-white">
+          GIFT CARD
+        </div>
       </div>
     );
   }
@@ -710,25 +540,16 @@ export function WalmartCard({ variant = "full", className = "" }: BrandCardProps
           <circle cx="100" cy="50" r="45" fill="white" />
         </svg>
       </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
-        <div className="flex items-start justify-between">
-          <div>
-            <div className="text-[9px] uppercase tracking-[0.25em] opacity-70 font-semibold">Gift Card</div>
-            <div className="mt-3 flex items-center gap-2">
-              <WalmartMark className="h-7 text-[#FFC220]" />
-              <span className="text-xl font-extrabold tracking-tight">Walmart</span>
-            </div>
-          </div>
+      <div className="relative h-full p-6 flex flex-col justify-between text-white">
+        <div className="flex items-center gap-2">
+          <WalmartMark className="h-7 text-[#FFC220]" />
+          <span className="text-xl font-extrabold tracking-tight">Walmart</span>
         </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-70">SAVE MONEY • LIVE BETTER</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-300/70 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
+        <div>
+          <div className="text-[10px] uppercase tracking-[0.3em] opacity-70 font-semibold mb-1">
+            Gift Card
           </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-70">
-          <span>{FOOTER}</span>
-          <span>•••• 1962</span>
+          <div className="text-xl font-extrabold tracking-tight">Retail</div>
         </div>
       </div>
     </div>
@@ -750,12 +571,13 @@ export function TargetCard({ variant = "full", className = "" }: BrandCardProps)
   if (variant === "mini") {
     return (
       <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
+        className={`relative w-40 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
         style={{ background: "linear-gradient(135deg, #CC0000 0%, #990000 100%)" }}
       >
-        <TargetMark className="absolute top-2 left-2 h-4 text-white" />
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">TARGET</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-300/70 ring-1 ring-white/30" />
+        <TargetMark className="absolute top-2.5 left-3 h-4 text-white" />
+        <div className="absolute bottom-2 left-3 text-[8px] font-bold tracking-[0.18em] text-white">
+          GIFT CARD
+        </div>
       </div>
     );
   }
@@ -769,25 +591,16 @@ export function TargetCard({ variant = "full", className = "" }: BrandCardProps)
           <circle cx="100" cy="50" r="40" fill="white" />
         </svg>
       </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
-        <div className="flex items-start justify-between">
-          <div>
-            <div className="text-[9px] uppercase tracking-[0.25em] opacity-70 font-semibold">Gift Card</div>
-            <div className="mt-3 flex items-center gap-2">
-              <TargetMark className="h-6 text-white" />
-              <span className="text-xl font-extrabold tracking-tight">TARGET</span>
-            </div>
-          </div>
+      <div className="relative h-full p-6 flex flex-col justify-between text-white">
+        <div className="flex items-center gap-2">
+          <TargetMark className="h-6 text-white" />
+          <span className="text-2xl font-extrabold tracking-tight">TARGET</span>
         </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-70">EXPECT MORE • PAY LESS</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-300/70 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
+        <div>
+          <div className="text-[10px] uppercase tracking-[0.3em] opacity-70 font-semibold mb-1">
+            Gift Card
           </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-70">
-          <span>{FOOTER}</span>
-          <span>•••• 1902</span>
+          <div className="text-xl font-extrabold tracking-tight">Retail</div>
         </div>
       </div>
     </div>
@@ -806,114 +619,19 @@ function TargetMark({ className = "" }: { className?: string }) {
 }
 
 /* ----------------------------------------------------------------------------
- * Best Buy
- * -------------------------------------------------------------------------- */
-export function BestBuyCard({ variant = "full", className = "" }: BrandCardProps) {
-  if (variant === "mini") {
-    return (
-      <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
-        style={{ background: "linear-gradient(135deg, #0046BE 0%, #003291 100%)" }}
-      >
-        <span className="absolute top-2 left-2 text-[9px] font-extrabold tracking-tight text-white">BEST BUY</span>
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">GIFT CARD</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-300/70 ring-1 ring-white/30" />
-      </div>
-    );
-  }
-  return (
-    <div
-      className={`relative h-56 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/30 ${className}`}
-      style={{ background: "linear-gradient(135deg, #0046BE 0%, #003291 60%, #0046BE 100%)" }}
-    >
-      <div className="absolute inset-0 opacity-15 mix-blend-screen">
-        <svg viewBox="0 0 200 100" className="w-full h-full" preserveAspectRatio="none">
-          <rect x="20" y="20" width="40" height="60" fill="white" />
-          <rect x="80" y="40" width="100" height="20" fill="white" />
-        </svg>
-      </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
-        <div>
-          <div className="text-[9px] uppercase tracking-[0.25em] opacity-70 font-semibold">Gift Card</div>
-          <div className="mt-3 text-2xl font-extrabold tracking-tight">BEST BUY</div>
-        </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-70">TECH • ELECTRONICS</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-300/70 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
-          </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-70">
-          <span>{FOOTER}</span>
-          <span>•••• 1966</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ----------------------------------------------------------------------------
- * Apple Store
- * -------------------------------------------------------------------------- */
-export function AppleStoreCard({ variant = "full", className = "" }: BrandCardProps) {
-  if (variant === "mini") {
-    return (
-      <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
-        style={{ background: "linear-gradient(135deg, #F5F5F7 0%, #D8D8DC 100%)" }}
-      >
-        <AppleMark className="absolute top-2 left-2 h-4 text-[#1D1D1F]" />
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-[#1D1D1F]">APPLE</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-400/70 ring-1 ring-slate-400" />
-      </div>
-    );
-  }
-  return (
-    <div
-      className={`relative h-56 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/10 ${className}`}
-      style={{ background: "linear-gradient(135deg, #F5F5F7 0%, #D8D8DC 50%, #BEBEC2 100%)" }}
-    >
-      <div className="absolute inset-0 opacity-25 mix-blend-multiply">
-        <svg viewBox="0 0 200 100" className="w-full h-full" preserveAspectRatio="none">
-          <circle cx="170" cy="20" r="40" fill="white" />
-        </svg>
-      </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-[#1D1D1F]">
-        <div className="flex items-start justify-between">
-          <div>
-            <div className="text-[9px] uppercase tracking-[0.25em] opacity-60 font-semibold">Gift Card</div>
-            <div className="mt-2.5 text-2xl font-extrabold tracking-tight">Apple Store</div>
-          </div>
-          <AppleMark className="h-8 text-[#1D1D1F]" />
-        </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-60">MAC • IPAD • IPHONE</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-400/80 ring-1 ring-slate-400 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-slate-500/40" />
-          </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-60">
-          <span>{FOOTER}</span>
-          <span>•••• 1976</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ----------------------------------------------------------------------------
  * Nike
  * -------------------------------------------------------------------------- */
 export function NikeCard({ variant = "full", className = "" }: BrandCardProps) {
   if (variant === "mini") {
     return (
       <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/30 ${className}`}
+        className={`relative w-40 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/30 ${className}`}
         style={{ background: "linear-gradient(135deg, #111111 0%, #2A2A2A 100%)" }}
       >
-        <NikeMark className="absolute top-2 right-2 h-4 text-white" />
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">NIKE</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-300/60 ring-1 ring-white/30" />
+        <NikeMark className="absolute top-2.5 right-3 h-4 text-white" />
+        <div className="absolute bottom-2 left-3 text-[8px] font-bold tracking-[0.18em] text-white">
+          GIFT CARD
+        </div>
       </div>
     );
   }
@@ -927,23 +645,15 @@ export function NikeCard({ variant = "full", className = "" }: BrandCardProps) {
           <circle cx="50" cy="30" r="40" fill="white" />
         </svg>
       </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
+      <div className="relative h-full p-6 flex flex-col justify-between text-white">
         <div className="flex items-start justify-between">
-          <div>
-            <div className="text-[9px] uppercase tracking-[0.25em] opacity-60 font-semibold">Gift Card</div>
-            <div className="mt-2.5 text-2xl font-extrabold tracking-tight">NIKE</div>
-          </div>
-          <NikeMark className="h-7 text-white" />
+          <NikeMark className="h-8 text-white" />
         </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-60">JUST DO IT</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-300/70 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
+        <div>
+          <div className="text-[10px] uppercase tracking-[0.3em] opacity-60 font-semibold mb-1">
+            Gift Card
           </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-60">
-          <span>{FOOTER}</span>
-          <span>•••• 1964</span>
+          <div className="text-2xl font-extrabold tracking-tight">Nike</div>
         </div>
       </div>
     </div>
@@ -955,158 +665,5 @@ function NikeMark({ className = "" }: { className?: string }) {
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
       <path d="M3 14.5c2.5-1.4 6.5-3.6 12-7 1.2-.7 2.4-.3 1.6 1.8-2 5.3-3.3 7.5-5 9.4-1.5 1.7-2.5.6-1.7-1.4.7-1.8 1.6-3.5 1.6-3.5s-2.4 1-4 1.6c-2 .7-4.5-.8-4.5-.8z" />
     </svg>
-  );
-}
-
-/* ----------------------------------------------------------------------------
- * Adidas
- * -------------------------------------------------------------------------- */
-export function AdidasCard({ variant = "full", className = "" }: BrandCardProps) {
-  if (variant === "mini") {
-    return (
-      <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
-        style={{ background: "linear-gradient(135deg, #FFFFFF 0%, #ECEAE0 100%)" }}
-      >
-        <AdidasMark className="absolute top-2 left-2 h-4 text-black" />
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-black">ADIDAS</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-400/70 ring-1 ring-slate-300" />
-      </div>
-    );
-  }
-  return (
-    <div
-      className={`relative h-56 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/10 ${className}`}
-      style={{ background: "linear-gradient(135deg, #FFFFFF 0%, #ECEAE0 50%, #DDD9CB 100%)" }}
-    >
-      <div className="absolute inset-0 opacity-25 mix-blend-multiply">
-        <svg viewBox="0 0 200 100" className="w-full h-full" preserveAspectRatio="none">
-          <circle cx="160" cy="80" r="40" fill="white" />
-        </svg>
-      </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-[#0E1B17]">
-        <div className="flex items-start justify-between">
-          <div>
-            <div className="text-[9px] uppercase tracking-[0.25em] opacity-60 font-semibold">Gift Card</div>
-            <div className="mt-3 flex items-center gap-2">
-              <AdidasMark className="h-7 text-black" />
-              <span className="text-2xl font-extrabold tracking-tight">adidas</span>
-            </div>
-          </div>
-        </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-60">IMPOSSIBLE IS NOTHING</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-400/80 ring-1 ring-slate-400 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-slate-500/40" />
-          </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-60">
-          <span>{FOOTER}</span>
-          <span>•••• 1949</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function AdidasMark({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor">
-      <path d="M10.5 5.5l3.5 6.5-3.5 1.5-2-5.5z" />
-      <path d="M15 8l3.5 6.5-3.5 1.5-2-5.5z" transform="translate(-1.5 -1.5)" />
-      <path d="M19.5 10.5l3.5 6.5-3.5 1.5-2-5.5z" transform="translate(-3 -3)" />
-    </svg>
-  );
-}
-
-/* ----------------------------------------------------------------------------
- * Macy's
- * -------------------------------------------------------------------------- */
-export function MacysCard({ variant = "full", className = "" }: BrandCardProps) {
-  if (variant === "mini") {
-    return (
-      <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
-        style={{ background: "linear-gradient(135deg, #E21A2E 0%, #A8111F 100%)" }}
-      >
-        <span className="absolute top-2 left-2 text-[10px] font-extrabold tracking-tight text-white">Macy&apos;s</span>
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">GIFT CARD</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-300/70 ring-1 ring-white/30" />
-      </div>
-    );
-  }
-  return (
-    <div
-      className={`relative h-56 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/30 ${className}`}
-      style={{ background: "linear-gradient(135deg, #E21A2E 0%, #A8111F 60%, #E21A2E 100%)" }}
-    >
-      <div className="absolute inset-0 opacity-15 mix-blend-screen">
-        <svg viewBox="0 0 200 100" className="w-full h-full" preserveAspectRatio="none">
-          <path d="M100 5 L100 95" stroke="white" strokeWidth="1.5" />
-        </svg>
-      </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
-        <div>
-          <div className="text-[9px] uppercase tracking-[0.25em] opacity-70 font-semibold">Gift Card</div>
-          <div className="mt-3 text-3xl font-extrabold tracking-tight">Macy&apos;s</div>
-        </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-70">DEPARTMENT STORE</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-300/70 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
-          </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-70">
-          <span>{FOOTER}</span>
-          <span>•••• 1858</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ----------------------------------------------------------------------------
- * Nordstrom
- * -------------------------------------------------------------------------- */
-export function NordstromCard({ variant = "full", className = "" }: BrandCardProps) {
-  if (variant === "mini") {
-    return (
-      <div
-        className={`relative w-40 h-24 rounded-lg overflow-hidden flex-shrink-0 shadow-md ring-1 ring-black/10 ${className}`}
-        style={{ background: "linear-gradient(135deg, #0B0B0B 0%, #2A2A2A 100%)" }}
-      >
-        <span className="absolute top-2 left-2 text-[8px] font-extrabold tracking-[0.2em] text-white">NORDSTROM</span>
-        <div className="absolute bottom-1.5 left-2 text-[8px] font-bold tracking-wider text-white">GIFT CARD</div>
-        <div className="absolute bottom-1.5 right-2 h-2.5 w-3.5 rounded-[2px] bg-yellow-300/60 ring-1 ring-white/30" />
-      </div>
-    );
-  }
-  return (
-    <div
-      className={`relative h-56 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/30 ${className}`}
-      style={{ background: "linear-gradient(135deg, #0B0B0B 0%, #2A2A2A 60%, #0B0B0B 100%)" }}
-    >
-      <div className="absolute inset-0 opacity-15 mix-blend-screen">
-        <svg viewBox="0 0 200 100" className="w-full h-full" preserveAspectRatio="none">
-          <circle cx="100" cy="50" r="35" fill="white" />
-        </svg>
-      </div>
-      <div className="relative h-full p-5 flex flex-col justify-between text-white">
-        <div>
-          <div className="text-[9px] uppercase tracking-[0.25em] opacity-60 font-semibold">Gift Card</div>
-          <div className="mt-3 text-2xl font-extrabold tracking-[0.15em]">NORDSTROM</div>
-        </div>
-        <div className="flex items-end justify-between">
-          <div className="text-[9px] font-semibold opacity-60">FASHION • LUXURY</div>
-          <div className="h-7 w-9 rounded-md bg-yellow-300/70 ring-1 ring-white/40 grid place-items-center">
-            <div className="h-3 w-5 rounded-sm bg-white/40" />
-          </div>
-        </div>
-        <div className="flex items-center justify-between text-[9px] font-semibold opacity-60">
-          <span>{FOOTER}</span>
-          <span>•••• 1901</span>
-        </div>
-      </div>
-    </div>
   );
 }
