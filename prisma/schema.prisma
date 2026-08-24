@@ -1,0 +1,11 @@
+// This Prisma schema file is intentionally minimal.
+// The P-CORNEL TRADING LIMITED site is a marketing site that does not require
+// a database. Remove this file (and the prisma package) if you do not need it.
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
